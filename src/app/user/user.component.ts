@@ -9,6 +9,8 @@ import { Subscription } from 'rxjs/Rx';
       <button (click)="onNavigate()">Go Home</button>
       <hr>
       {{id}}
+      <hr>
+      <router-outlet></router-outlet>
     `
 })
 export class UserComponent implements OnDestroy {
@@ -18,6 +20,12 @@ export class UserComponent implements OnDestroy {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute) {
+
+    // Extracting a Fragment works just like extracting QueryParams
+    // this.subscription = this.route.fragment.subscribe(
+    //   fragment => console.log(fragment);
+    // );
+
     this.subscription = activatedRoute.params.subscribe(
       (param: any) => this.id = param['id']
     );
