@@ -1,3 +1,4 @@
+import { UserDetailGuard } from './user/user-detail.guard';
 import { NgModule } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 
@@ -18,6 +19,7 @@ import {routing} from './app-routing.module';
         HomeComponent
     ],
     imports: [BrowserModule, routing],
+    providers: [UserDetailGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
